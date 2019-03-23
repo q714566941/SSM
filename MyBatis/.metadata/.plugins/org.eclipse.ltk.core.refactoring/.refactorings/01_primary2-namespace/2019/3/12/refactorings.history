@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;mapper.xml&apos; to &apos;mapper.xml&apos;&#x0D;&#x0A;- Original project: &apos;primary2&apos;&#x0D;&#x0A;- Destination element: &apos;mapper.xml&apos;&#x0D;&#x0A;- Original element: &apos;mapper.xml&apos;" description="Copy file" element1="src/dao/mapper.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1553132067487" target="/primary2/src/dao/mapper.xml" units="0" version="1.0"/>
+</session>

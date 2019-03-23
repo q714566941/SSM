@@ -1,0 +1,11 @@
+package test;
+
+import org.apache.log4j.Logger;
+
+public class MyTest {
+
+	public static void main(String[] args) {
+		Logger.getLogger(MyTest.class);           //指定记的是哪个类的日志
+	}
+
+}

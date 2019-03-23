@@ -1,0 +1,11 @@
+package beans;
+
+import java.util.Set;
+
+public class Country {
+	private Integer cid;
+	private String cname;
+	//关联属性
+	private Set<Minister> ministers;
+	
+}

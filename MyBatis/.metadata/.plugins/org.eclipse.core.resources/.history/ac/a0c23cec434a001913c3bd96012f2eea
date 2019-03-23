@@ -1,0 +1,21 @@
+package service;
+
+public abstract class shopping {
+	//模板方法
+	public void buyGoods(){
+		userLogin();
+		buy();
+		pay();
+	}
+
+	private void pay() {
+		
+	}
+	//子类必须实现的方法
+	private abstract void buy();
+	
+	//子类不能重写的方法
+	private final void userLogin() {         
+		System.out.println("用户登陆");
+	}
+}

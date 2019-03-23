@@ -1,0 +1,19 @@
+package adapters.impl;
+
+import adapters.IWorkerAdapter;
+
+public class CookerAdapter implements IWorkerAdapter {
+
+	@Override
+	public String work(Object worker) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean supports(Object worker) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

@@ -1,0 +1,16 @@
+package proxy_static_factory;
+
+import net.sf.cglib.proxy.Enhancer;
+
+public class MyCglibFactory {
+	
+	public SomeService myCglibCreator() {
+		//创建增强器对象
+		Enhancer enhancer = new Enhancer();   //增强器
+		//指定目标类，既父类
+		enhancer.setSuperclass(SomeService.class);
+		//设置回调接口对象
+		enhancer.setCallback(callback);
+		return (SomeService) enhancer.create();             //返回指定类的子类
+	}
+}

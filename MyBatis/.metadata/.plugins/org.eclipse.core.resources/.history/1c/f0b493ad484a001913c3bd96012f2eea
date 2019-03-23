@@ -1,0 +1,15 @@
+package test;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class MyTest {
+	@Before
+	public void before() {
+		System.out.println("执行before()");
+	}
+	@Test
+	public void test01() {
+		System.out.println("执行test01()");
+	}
+}

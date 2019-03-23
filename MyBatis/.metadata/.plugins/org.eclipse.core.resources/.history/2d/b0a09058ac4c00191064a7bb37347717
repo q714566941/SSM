@@ -1,0 +1,116 @@
+/**
+ * 
+ */
+package dao;
+
+
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.session.SqlSession;
+
+import beans.Student;
+import utils.MyBatisUtils;
+
+public class StudentDaoImpl implements IStudentDao {
+	private SqlSession sqlSession;
+
+	@Override
+	public void insertStudent(Student student) {
+		try {
+			sqlSession = MyBatisUtils.getSqlSession();
+			sqlSession.insert("insertStudent", student);          
+			sqlSession.commit();                                  
+		}finally {
+			if(sqlSession != null){
+				sqlSession.close();                              
+			}
+		}
+	}
+
+
+	@Override
+	public void insertStudenCacheId(Student student) {
+		try {
+			sqlSession = MyBatisUtils.getSqlSession();
+			sqlSession.insert("insertStudenCacheId", student);          
+			sqlSession.commit();                                  
+		}finally {
+			if(sqlSession != null){
+				sqlSession.close();                              
+			}
+		}
+	}
+
+	@Override
+	public void deleteStudentById(int id) {
+		try {
+			sqlSession = MyBatisUtils.getSqlSession();
+			sqlSession.delete("deleteStudentById", id);    
+			sqlSession.commit();                                  
+		}finally {
+			if(sqlSession != null){
+				sqlSession.close();                              
+			}
+		}
+	}
+
+	@Override
+	public void updateStudent(Student student) {
+		try {
+			sqlSession = MyBatisUtils.getSqlSession();
+			sqlSession.update("updateStudent", student);   
+			sqlSession.commit();                                  
+		}finally {
+			if(sqlSession != null){
+				sqlSession.close();                              
+			}
+		}
+	}
+
+	@Override
+	public List<Student> selectAllStudents() {
+		List<Student> students = null;                                    //List定义???
+		try {
+			sqlSession = MyBatisUtils.getSqlSession();
+			students = sqlSession.selectList("selectAllStudents");        //取得所有数据，要指定statement
+//			sqlSession.commit();                                          //可以关闭因为没有数据提交                 
+		}finally {
+			if(sqlSession != null){
+				sqlSession.close();                                       //有事务的关闭                        
+			}
+		}
+		return students;
+	}
+
+	@Override
+	public Map<String, Object> selectAllStudentsMap() {
+		Map<String, Object> map = new HashMap<>();
+		sqlSession = MyBatisUtils.getSqlSession();
+		map = sqlSession.selectMap("selectAllStudents", "name");                //mapkey：指定一个属性为key!!!
+		return map;
+	}
+
+	@Override
+	public Student selectStudentById(int id) {
+		Student student = null;
+		try {
+			sqlSession = MyBatisUtils.getSqlSession();
+			sqlSession.selectOne("selectStudentById", id);                                        //返回一个对象 
+			sqlSession.commit();                                  
+		}finally {
+			if(sqlSession != null){
+				sqlSession.close();                              
+			}
+		}
+		return student;
+	}
+
+	@Override
+	public List<Student> selectStudentsByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

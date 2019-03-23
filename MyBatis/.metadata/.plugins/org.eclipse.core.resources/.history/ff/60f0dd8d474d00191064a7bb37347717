@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.IMinisterDao">
+
+	<resultMap type="Minister" id="ministerMapper">
+			
+	</resultMap>
+	
+	<select id="selectMinisterById" resultMap="ministerMapper">
+		select mid,mname,cid,cname
+		from minister,country                     <!-- 多表连接查询 -->
+		where countryId=cid and mid=#{xxx}
+	</select>
+</mapper>

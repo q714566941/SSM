@@ -1,0 +1,6 @@
+package beans;
+
+//新闻栏目
+public class NewsLable {
+
+}

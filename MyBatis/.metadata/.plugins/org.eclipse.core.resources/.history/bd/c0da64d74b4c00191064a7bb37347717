@@ -1,0 +1,23 @@
+package dao;
+
+
+
+import java.util.List;
+import java.util.Map;
+
+import beans.Student;
+
+public interface IStudentDao {
+	//插入
+	void insertStuden(Student student);
+	void insertStudenCacheId(Student student);
+	
+	void deleteStudentById(int id);
+	void updateStudent(Student student);
+	
+	//查询
+	List<Student> selectAllStudents();
+	Map<String, Object> selectAllStudentsMap();
+	Student selectStudentById(int id);
+	List<Student> selectStudentsByName(String name);          //根据名字模糊查询
+}

@@ -1,0 +1,6 @@
+package beans;
+
+public class Student {
+	private Integer id;     //包装类可以进行 id == null 的操作
+	
+}

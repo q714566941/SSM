@@ -1,0 +1,102 @@
+/**
+ * 
+ */
+package dao;
+
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.session.SqlSession;
+
+import beans.Student;
+import utils.MyBatisUtils;
+
+public class StudentDaoImpl implements IStudentDao {
+	private SqlSession sqlSession;
+
+	@Override
+	public void insertStudent(Student student) {
+		try {
+			sqlSession = MyBatisUtils.getSqlSession();
+			sqlSession.insert("insertStudent", student);          
+			sqlSession.commit();                                  
+		}finally {
+			if(sqlSession != null){
+				sqlSession.close();                              
+			}
+		}
+	}
+
+
+	@Override
+	public void insertStudenCacheId(Student student) {
+		try {
+			sqlSession = MyBatisUtils.getSqlSession();
+			sqlSession.insert("insertStudenCacheId", student);          
+			sqlSession.commit();                                  
+		}finally {
+			if(sqlSession != null){
+				sqlSession.close();                              
+			}
+		}
+	}
+
+	@Override
+	public void deleteStudentById(int id) {
+		try {
+			sqlSession = MyBatisUtils.getSqlSession();
+			sqlSession.delete("deleteStudentById", id);    
+			sqlSession.commit();                                  
+		}finally {
+			if(sqlSession != null){
+				sqlSession.close();                              
+			}
+		}
+	}
+
+	@Override
+	public void updateStudent(Student student) {
+		try {
+			sqlSession = MyBatisUtils.getSqlSession();
+			sqlSession.update("updateStudent", student);   
+			sqlSession.commit();                                  
+		}finally {
+			if(sqlSession != null){
+				sqlSession.close();                              
+			}
+		}
+	}
+
+	@Override
+	public List<Student> selectAllStudents() {
+		List<Student> students = null;                                    //List定义???
+		try {
+			sqlSession = MyBatisUtils.getSqlSession();
+			students = sqlSession.selectList("selectAllStudents");        //取得所有数据，要指定statement
+			sqlSession.commit();                                  
+		}finally {
+			if(sqlSession != null){
+				sqlSession.close();                              
+			}
+		}
+		return students;
+	}
+
+	@Override
+	public Map<String, Object> selectAllStudentsMap() {
+		return null;
+	}
+
+	@Override
+	public Student selectStudentById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Student> selectStudentsByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

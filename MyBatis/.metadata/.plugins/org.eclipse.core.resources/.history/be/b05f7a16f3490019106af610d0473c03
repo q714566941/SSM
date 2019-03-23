@@ -1,0 +1,33 @@
+package proxy_static_factory;
+
+import java.lang.reflect.Method;
+
+import net.sf.cglib.proxy.Enhancer;
+import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
+
+public class MyCglibFactory implements MethodInterceptor{
+	
+	public SomeService myCglibCreator() {
+		//创建增强器对象
+		Enhancer enhancer = new Enhancer();   //增强器
+		//指定目标类，既父类
+		enhancer.setSuperclass(SomeService.class);
+		//设置回调接口对象
+		enhancer.setCallback(callback);
+		
+		return (SomeService) enhancer.create();             //返回指定类的子类
+	}
+	//回调方法
+	@Override
+	public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
+		
+		return null;
+	}
+
+	@Override
+//	public Object intercept(Object arg0, Method arg1, Object[] arg2, MethodProxy arg3) throws Throwable {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}                                        //没有链接cglib源码，参数没自动更新
+}

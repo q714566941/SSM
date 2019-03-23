@@ -1,0 +1,13 @@
+package proxy_static_factory;
+
+import net.sf.cglib.proxy.Enhancer;
+
+public class MyCglibFactory {
+	
+	public SomeService myCglibCreator() {
+		Enhancer enhancer = new Enhancer();   //增强器
+		
+		
+		return enhancer.create();             //返回指定类的子类
+	}
+}

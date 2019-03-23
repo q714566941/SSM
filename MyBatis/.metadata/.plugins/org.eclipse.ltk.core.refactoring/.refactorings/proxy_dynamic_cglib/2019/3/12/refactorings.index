@@ -1,0 +1,5 @@
+1552962707150	Rename package 'proxy_static_service'
+1552963075503	Delete element
+1552963125484	Rename type 'SomeServiceImpl'
+1552963302748	Delete element
+1552963505580	Extract local variable 'enhancer'

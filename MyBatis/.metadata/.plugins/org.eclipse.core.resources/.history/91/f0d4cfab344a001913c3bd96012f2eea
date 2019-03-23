@@ -1,0 +1,17 @@
+package worker.impl;
+
+import worker.ICooker;
+import worker.IProgrammer;
+import worker.impl.JdProgrammer;
+import worker.impl.QjdCooker;
+
+public class MyTest {
+
+	public static void main(String[] args) {
+		ICooker qjdCooker = new QjdCooker();
+		IProgrammer jdpIProgrammer = new JdProgrammer();
+		System.out.println(qjdCooker.cook());
+		System.out.println(jdpIProgrammer.program());
+	}
+
+}

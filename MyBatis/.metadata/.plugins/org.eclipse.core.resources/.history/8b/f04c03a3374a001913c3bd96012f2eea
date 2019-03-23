@@ -1,0 +1,21 @@
+package adapters.impl;
+
+import adapters.IWorkerAdapter;
+import worker.ICooker;
+import worker.IProgrammer;
+
+//适配器类（一个）
+public class WorkAdapter implements IWorkerAdapter {
+
+	public String work(Object worker) {                   //QjdCooker传过来的时候变成了Object，而后强转为ICooker
+		String workContent = "";
+		//若传来的对象是厨师，则调用其cook()方法
+		if(worker  instanceof ICooker){
+			workContent = ((ICooker)worker).cook();
+		}
+		else if(worker instanceof IProgrammer)
+			workContent = ((IProgrammer)worker).program();
+		return workContent;
+	}
+
+}

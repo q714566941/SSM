@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.ICountryDao">
+	<select id="selectCountryById" resultType="">
+		select cid,cname,mid,mname
+		from country,minister
+		where countryId=cid and cid=#{xxx}              <!-- 表的连接和参数接收 -->
+	</select>
+</mapper>

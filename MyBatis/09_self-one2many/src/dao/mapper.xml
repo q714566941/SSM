@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.INewsLabelDao">
+
+<!-- 	<select id="">
+		select id,name from newslabel where pid=#{yyy}        和下面select一样
+	</select> -->
+
+	<resultMap type="NewsLabel" id="newsLabelMapper">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<collection property="children" 
+		            ofType="NewsLabel"
+		            select="selectChildrenByPid"                
+		            column="id"/>            <!-- 递归调用select!!! -->
+	</resultMap>
+	
+	<select id="selectChildrenByPid" resultMap="newsLabelMapper">
+		select id,name from newslabel where pid=#{xxx}
+	</select>
+</mapper>

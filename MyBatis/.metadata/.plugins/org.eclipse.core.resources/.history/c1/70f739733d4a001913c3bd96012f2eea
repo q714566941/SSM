@@ -1,0 +1,19 @@
+package adapters.impl;
+
+import adapters.IWorkerAdapter;
+import worker.IProgrammer;
+
+public class ProgrammerAdapter implements IWorkerAdapter {
+
+	@Override
+	public String work(Object worker) {
+		return ((IProgrammer)worker).program();
+	}
+
+	@Override
+	public boolean supports(Object worker) {
+		// TODO Auto-generated method stub
+		return (worker instanceof IProgrammer);
+	}
+
+}

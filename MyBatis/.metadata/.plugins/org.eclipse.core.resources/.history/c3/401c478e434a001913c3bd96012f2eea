@@ -1,0 +1,21 @@
+package service;
+
+public class shopping {
+	public void buyGoods(){
+		userLogin();
+		buy();
+		pay();
+	}
+
+	private void pay() {
+		
+	}
+
+	private void buy() {
+		
+	}
+
+	private final void userLogin() {         //final修饰的方法，子类不能复写
+		System.out.println("用户登陆");
+	}
+}

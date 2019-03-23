@@ -1,0 +1,10 @@
+package service;
+
+public class ClothesShopping extends shopping {
+
+	@Override
+	public void buy() {
+		System.out.println("购买七匹狼男装");
+	}
+
+}

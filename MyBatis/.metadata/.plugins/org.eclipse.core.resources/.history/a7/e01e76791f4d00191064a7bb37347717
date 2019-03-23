@@ -1,0 +1,131 @@
+package test;
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.session.SqlSession;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import beans.Student;
+import dao.IStudentDao;
+import utils.MyBatisUtils;
+
+public class MyTest {
+	private IStudentDao dao;
+	private SqlSession sqlSession;
+	
+	@Before
+	public void before() {
+		sqlSession = MyBatisUtils.getSqlSession();
+		dao = sqlSession.getMapper(dao.IStudentDao.class);          //getMapper：通过mapper.xml中的namespace找到相应mapper
+		                                                            //dao是一个jdkdongtaidail
+	}
+	@After
+	public void After(){
+		if(sqlSession != null){
+			sqlSession.close();                              
+		}
+	}
+	
+	@Test
+	public void test01() {
+//		Student stu = new Student("",23,99);
+		Student stu = new Student("",0,0);
+		
+//		List<Student> students = dao.selectStudentsByIf(stu);
+		
+		List<Student> students = dao.selectStudentsByIf(stu);
+		for (Student student : students) {
+			System.out.println(student);                         //自动调用toString方法
+		}
+	}
+	
+	@Test
+	public void test02() {
+//		Student stu = new Student("",23,99);
+		Student stu = new Student("",0,0);
+		
+//		List<Student> students = dao.selectStudentsByIf(stu);
+		
+		List<Student> students = dao.selectStudentsByWhere(stu);
+		for (Student student : students) {
+			System.out.println(student);                         //自动调用toString方法
+		}
+	}
+	
+	@Test
+	public void test03() {
+		Student stu = new Student("张",24,99);       //只按照姓名查询
+//		Student stu = new Student("",23,99);
+//		Student stu = new Student("",0,0);
+		
+//		List<Student> students = dao.selectStudentsByIf(stu);
+		
+		List<Student> students = dao.selectStudentsByChoose(stu);
+		for (Student student : students) {
+			System.out.println(student);                        
+		}
+	}
+	
+	@Test
+	public void test04() {
+		int[] ids = {1,5,10};                //待查询id
+		
+		Student stu = new Student("张",24,99);       
+//		Student stu = new Student("",23,99);
+//		Student stu = new Student("",0,0);
+		
+//		List<Student> students = dao.selectStudentsByIf(stu);
+		
+		List<Student> students = dao.selectStudentsByForeach(ids);
+		for (Student student : students) {
+			System.out.println(student);                         
+		}
+	}
+	
+	@Test
+	public void test05() {
+		List<Integer> ids = new ArrayList<Integer>();
+		ids.add(1);
+		ids.add(5);
+		
+		Student stu = new Student("张",24,99);       
+//		Student stu = new Student("",23,99);
+//		Student stu = new Student("",0,0);
+		
+//		List<Student> students = dao.selectStudentsByIf(stu);
+		
+		List<Student> students = dao.selectStudentsByForeach2(ids);
+		for (Student student : students) {
+			System.out.println(student);                         
+		}
+	}
+	
+	@Test
+	public void test06() {
+		Student stu1 = new Student();
+		stu1.setId(1);
+		Student stu2 = new Student();
+		stu2.setId(3);
+		
+		List<Student> stus = new ArrayList<Student>();
+		stus.add(stu1);
+		stus.add(stu2);
+		
+		Student stu = new Student("张",24,99);       
+//		Student stu = new Student("",23,99);
+//		Student stu = new Student("",0,0);
+		
+//		List<Student> students = dao.selectStudentsByIf(stu);
+		
+		List<Student> students = dao.selectStudentsByForeach3(stus);
+		for (Student student : students) {
+			System.out.println(student);                         
+		}
+	}
+}

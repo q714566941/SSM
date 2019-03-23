@@ -1,0 +1,13 @@
+package adapters.impl;
+
+import adapters.IWorkerAdapter;
+
+public class WorkAdapter implements IWorkerAdapter {
+
+	@Override
+	public String work(Object worker) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

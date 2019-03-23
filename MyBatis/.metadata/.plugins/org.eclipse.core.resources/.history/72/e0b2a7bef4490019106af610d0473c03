@@ -1,0 +1,20 @@
+package test;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+
+import proxy_static_factory.ISomeService;
+import proxy_static_factory.MyCglibFactory;
+import proxy_static_factory.SomeService;
+
+public class MyTest {
+
+	public static void main(String[] args) {
+		SomeService service = new MyCglibFactory().myCglibCreator();   //获取cglib代理
+		
+		String result = service.doFirst();                       
+		System.out.println("result: " + result);                
+		service.doSecond();
+	}
+}

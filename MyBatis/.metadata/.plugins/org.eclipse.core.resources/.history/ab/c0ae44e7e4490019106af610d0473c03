@@ -1,0 +1,6 @@
+package proxy_static_service;
+
+public interface ISomeService {
+	String doFirst();
+	void doSecond();
+}

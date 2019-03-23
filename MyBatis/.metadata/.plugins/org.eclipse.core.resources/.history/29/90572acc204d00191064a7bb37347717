@@ -1,0 +1,17 @@
+package dao;
+
+
+
+import java.util.List;
+import java.util.Map;
+
+import beans.Student;
+
+public interface IStudentDao {
+	List<Student> selectStudentsByIf(Student student);          //多条件查询
+	List<Student> selectStudentsByWhere(Student student); 
+	List<Student> selectStudentsByChoose(Student student); 
+	List<Student> selectStudentsByForeach(int[] ids);
+	List<Student> selectStudentsByForeach2(List<Integer> ids);
+	List<Student> selectStudentsByForeach3(List<Student> ids);
+}

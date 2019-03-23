@@ -1,0 +1,11 @@
+package service;
+
+public class ClothesShopping extends shopping {
+
+	@Override
+	public void buy() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

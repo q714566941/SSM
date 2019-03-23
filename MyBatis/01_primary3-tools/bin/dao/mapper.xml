@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test">
+	<insert id="insertStudent" parameterType="Student">     <!-- statement -->     <!-- parameterType在主配置中取别名 -->
+		insert into student(name,age,score) values(#{name}, #{age}, #{score})       <!-- values中放的属性名(不是成员变量) -->
+	</insert>
+</mapper>

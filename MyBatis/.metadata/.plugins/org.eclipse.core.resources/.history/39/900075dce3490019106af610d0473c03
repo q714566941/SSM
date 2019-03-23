@@ -1,0 +1,15 @@
+package proxy_static;
+
+import proxy_static.ISomeService;
+import proxy_static.SomeServiceImpl;
+
+public class MyTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ISomeService service = new SomeServiceImpl();             //实现类才可以被初始化
+		String result = service.doFirst();
+		System.out.println("result: " + result);
+		service.doSecond();
+	}
+}

@@ -1,0 +1,17 @@
+package proxy_static;
+
+public class SomeServiceImpl implements ISomeService {
+
+	@Override
+	public String doFirst() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void doSecond() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

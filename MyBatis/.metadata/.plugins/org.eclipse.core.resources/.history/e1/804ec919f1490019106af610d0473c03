@@ -1,0 +1,10 @@
+package proxy_static_factory;
+
+public class MyCglibFactory {
+	
+	public SomeService myCglibCreator() {
+		Enhance
+		
+		return null;
+	}
+}

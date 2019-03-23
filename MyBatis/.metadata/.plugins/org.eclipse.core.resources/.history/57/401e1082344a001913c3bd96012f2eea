@@ -1,0 +1,19 @@
+package adapters.impl;
+
+import adapters.IWorkerAdapter;
+import worker.ICooker;
+import worker.IProgrammer;
+
+public class WorkAdapter implements IWorkerAdapter {
+
+	public String work(Object worker) {
+		//若传来的对象是厨师，则调用其cook()方法
+		if(worker  instanceof ICooker){
+			((ICooker)worker).cook();
+		}
+		if(worker instanceof IProgrammer)
+			((IProgrammer)worker).program();
+		return null;
+	}
+
+}

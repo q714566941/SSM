@@ -1,0 +1,20 @@
+package test;
+
+import java.lang.reflect.Proxy;
+
+import proxy_static_service.ISomeService;
+import proxy_static_service.SomeServiceImpl;
+
+public class MyTest {
+
+	public static void main(String[] args) {
+		ISomeService target = new SomeServiceImpl();
+		ISomeService service = Proxy.newProxyInstance(         //Proxy类用来创建动态代理类
+				target.getClass().getClassLoader(),            //目标类类加载器
+				target.getClass().getInterfaces(),             //目标类实现的所有接口
+				h)
+		String result = service.doFirst();                       
+		System.out.println("result: " + result);                
+		service.doSecond();
+	}
+}

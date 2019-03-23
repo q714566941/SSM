@@ -1,0 +1,6 @@
+package beans;
+
+//新闻栏目：当前的新闻栏目被看作一方，即父lanmu
+public class NewsLable {
+
+}

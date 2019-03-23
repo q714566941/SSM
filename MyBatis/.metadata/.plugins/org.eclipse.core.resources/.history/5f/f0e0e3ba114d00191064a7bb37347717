@@ -1,0 +1,12 @@
+package dao;
+
+
+
+import java.util.List;
+import java.util.Map;
+
+import beans.Student;
+
+public interface IStudentDao {
+	List<Student> selectStudentsByCondition(Map<String,Object> map);          //根据名字模糊查询
+}

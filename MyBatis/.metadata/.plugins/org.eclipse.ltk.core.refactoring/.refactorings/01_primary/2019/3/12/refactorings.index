@@ -1,0 +1,7 @@
+1553042600220	Delete element
+1553042612499	Delete elements
+1553068558350	Convert local variable 'dao' to field
+1553069495284	Extract local variable 'sqlSessionFactory'
+1553071461299	Convert local variable 'sqlSession' to field
+1553075842507	Delete element
+1553075853526	Delete element

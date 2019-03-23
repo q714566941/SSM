@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="jdbc.properties"/>     <!-- 指定使用的配置文件（每个配置文件中都有jdbc.driver等） -->
+	
+	<typeAliases>                                      <!-- 给类型取命名 -->
+		<!-- <typeAlias type="beans.Student" alias="xxx"/> -->
+		<!-- 将指定包中所有类的简单类名作为其别名 -->
+		<package name="beans"/>
+	</typeAliases>
+	<!-- 配置运行环境 -->
+	<environments default="mysql_test_EM">             <!-- 指定跑的环境 -->
+		<environment id="mysql_test_EM">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">                 <!-- 连接数据库 -->
+				<property name="driver" value="${jdbc.driver}"/>     <!-- 属性文件中已定义 -->
+				<property name="url" value="${jdbc.url}"/>
+				<property name="username" value="${jdbc.username}"/>
+				<property name="password" value="${jdbc.password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- 注册映射文件 -->
+	<mappers>
+		<mapper resource="dao/mapper.xml"/>
+	</mappers>
+</configuration>
